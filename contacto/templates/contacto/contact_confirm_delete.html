@@ -1,0 +1,36 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <form method="post">{% csrf_token %}
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <div class="d-flex">
+                            <h4 class="text-danger">
+                                <i class="fas fa-trash text-danger"></i>
+                                Delete Contact
+                            </h4>
+                            <a href="{% url 'createContact' %}" class="btn btn-info ml-auto">
+                                <i class="fas fa-user-plus"></i>
+                                add contact
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>
+                            <i class="fas fa-info-circle"></i>
+                            Are you sure to delete the contact? <b>{{ object }}</b>
+                        </h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="container d-flex justify-content-end">
+                            <a href="{% url 'listContact' %}" class="btn btn-warning mr-2">Cancel</a>
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
